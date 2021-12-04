@@ -8,37 +8,30 @@
 import SwiftUI
 
 struct mainView: View {
-    @ObservedObject var dt: Data = .data
+    @ObservedObject var data: Data = .data
     var body: some View {
         ZStack{
-            if self.dt.view == "title"{
+            if self.data.view == "title"{
                 titleView()
             }
-            if self.dt.view == "home"{
+            if self.data.view == "home"{
                 homeView()
             }
-            if self.dt.view == "log"{
+            if self.data.view == "log"{
                 logView()
             }
-            if self.dt.menuBar {
+            if self.data.menuBar {
                 menuButtonView()
             }
-            if self.dt.view == "game1"{
-                game1()
+            if self.data.view == "Newton"{
+                Newton()
             }
         }
     }
-    func changeView(view: String){
-        self.dt.view = "\(view)"
-    }
-}
-
-class Data: ObservableObject {
-    private init(){ }
-    static let data = Data()
     
-    @Published var view = "title"
-    @Published var menuBar = true
+    func changeView(view: String){
+        self.data.view = "\(view)"
+    }
 }
 
 struct mainView_Previews: PreviewProvider {

@@ -13,10 +13,11 @@
 		7F9BDA31274B407A00FB56B3 /* titleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA30274B407A00FB56B3 /* titleView.swift */; };
 		7F9BDA35274B409900FB56B3 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA34274B409900FB56B3 /* homeView.swift */; };
 		7F9BDA38274B40A600FB56B3 /* logView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA37274B40A600FB56B3 /* logView.swift */; };
-		7F9BDA3B274B40B100FB56B3 /* game1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA3A274B40B100FB56B3 /* game1.swift */; };
 		7F9BDA3E274B420D00FB56B3 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA3D274B420D00FB56B3 /* mainView.swift */; };
 		7F9BDA47274B650400FB56B3 /* menuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA46274B650400FB56B3 /* menuButtonView.swift */; };
 		7FA4AAF22756610A00C86539 /* Newton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4AAF12756610A00C86539 /* Newton.swift */; };
+		7FC549E0275B4B8C00B0386B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC549DF275B4B8C00B0386B /* ViewModel.swift */; };
+		7FC549E2275B6EED00B0386B /* GameSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC549E1275B6EED00B0386B /* GameSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +29,11 @@
 		7F9BDA30274B407A00FB56B3 /* titleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = titleView.swift; sourceTree = "<group>"; };
 		7F9BDA34274B409900FB56B3 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		7F9BDA37274B40A600FB56B3 /* logView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logView.swift; sourceTree = "<group>"; };
-		7F9BDA3A274B40B100FB56B3 /* game1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = game1.swift; sourceTree = "<group>"; };
 		7F9BDA3D274B420D00FB56B3 /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
 		7F9BDA46274B650400FB56B3 /* menuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuButtonView.swift; sourceTree = "<group>"; };
 		7FA4AAF12756610A00C86539 /* Newton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Newton.swift; sourceTree = "<group>"; };
+		7FC549DF275B4B8C00B0386B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		7FC549E1275B6EED00B0386B /* GameSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +71,9 @@
 				7F9BDA30274B407A00FB56B3 /* titleView.swift */,
 				7F9BDA34274B409900FB56B3 /* homeView.swift */,
 				7F9BDA37274B40A600FB56B3 /* logView.swift */,
+				7FC549E1275B6EED00B0386B /* GameSetting.swift */,
 				7FA4AAF12756610A00C86539 /* Newton.swift */,
-				7F9BDA3A274B40B100FB56B3 /* game1.swift */,
+				7FC549DF275B4B8C00B0386B /* ViewModel.swift */,
 				7F9BDA46274B650400FB56B3 /* menuButtonView.swift */,
 				7F9BDA24274B405D00FB56B3 /* Assets.xcassets */,
 				7F9BDA29274B405D00FB56B3 /* Info.plist */,
@@ -157,12 +160,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F9BDA21274B405900FB56B3 /* OurTeamSeisakuApp.swift in Sources */,
+				7FC549E2275B6EED00B0386B /* GameSetting.swift in Sources */,
 				7F9BDA38274B40A600FB56B3 /* logView.swift in Sources */,
 				7FA4AAF22756610A00C86539 /* Newton.swift in Sources */,
 				7F9BDA31274B407A00FB56B3 /* titleView.swift in Sources */,
 				7F9BDA3E274B420D00FB56B3 /* mainView.swift in Sources */,
-				7F9BDA3B274B40B100FB56B3 /* game1.swift in Sources */,
 				7F9BDA35274B409900FB56B3 /* homeView.swift in Sources */,
+				7FC549E0275B4B8C00B0386B /* ViewModel.swift in Sources */,
 				7F9BDA47274B650400FB56B3 /* menuButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +297,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"OurTeamSeisaku/Preview Content\"";
+				DEVELOPMENT_TEAM = DN9W3Q5C4K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = OurTeamSeisaku/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -314,6 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"OurTeamSeisaku/Preview Content\"";
+				DEVELOPMENT_TEAM = DN9W3Q5C4K;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = OurTeamSeisaku/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
