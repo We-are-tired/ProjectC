@@ -18,6 +18,9 @@ class Data: ObservableObject {
 
 
 class ViewModel: ObservableObject{
+    /// ゲーム設定画面で決めた設定
+    let model = Setting.model
+    
     @ObservedObject var data: Data = .data
     @State var timerHandler : Timer?
     //    端末の画面の縦横の大きさを取得
@@ -38,7 +41,7 @@ class ViewModel: ObservableObject{
     @Published var isPlay = false
     var count = 0
     var obNum = 4
-    var speed = CGFloat(2)
+//    var speed = CGFloat(2)
     
     
     func set() {
@@ -73,7 +76,7 @@ class ViewModel: ObservableObject{
     }
     //    画面上にある障害物を下に移動させていく
     func moveDown(num: Int) {
-        obstacle[num].y += speed
+        obstacle[num].y += model.fallingSpeed
         // 画面外にいくと再配置,停止
         if obstacle[num].y >= h+50{
             moving[num]=false
