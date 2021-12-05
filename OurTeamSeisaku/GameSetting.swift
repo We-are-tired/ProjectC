@@ -21,116 +21,62 @@ struct GameSetting: View {
     
     var body: some View {
         
-        HStack{
-            
-            VStack{
+        //HStack{時間設定を横に出す時に必要になる
+            VStack{//引数エラーが起こるため、VStack多め。
                 
                 Spacer()
                 
-                HStack{
+                VStack{
+                    Image(systemName:"person")
+                        .resizable()
+                        .frame(width: 55, height: 55)
                     
-                    VStack{
-                        Image(systemName:"person")
-                            .resizable()
-                            .frame(width: 55, height: 55)
-                        
-                        Text("プレイヤー1")
-                            .padding()
-                        
-                        Text("①くも")
-                        Text("②バッテリー")
-                    }//VStack(Player1)
+                    Text("Iphone ユーザー")
                     
-                    Text("VS")
-                        .padding()
-                    
-                    VStack{
-                        Image(systemName:"person.fill")
-                            .resizable()
-                            .frame(width: 55, height: 55)
-                        
-                        Text("プレイヤー2")
-                            .padding()
-                        
-                        Text("①ほのお")
-                        Text("②くも")
-                    }//VStack(Player2)
-                }//HStack
+                }//User
                 
                 VStack{
+                    Text("端末(小)")
+                        .padding()
                     
-                    HStack{
-                        Text(iphoneBtn ? "ON" : "OFF")
-                        Toggle("", isOn: $iphoneBtn)
-                            .labelsHidden()
-                            .padding()
-                        
-                        
-                        Text("端末(小)")
-                            .padding()
-                        
-                        
-                        Text(iphoneBtn2 ? "ON" : "OFF")
-                        Toggle("", isOn: $iphoneBtn2)
-                            .labelsHidden()
-                            .padding()
-                        
-                    }//HStack(iphoneBtn)
+                    //Sample
+                    //Text(iphoneBtn2 ? "ON" : "OFF")
+                    //Toggle("", isOn: $iphoneBtn2)
+                    //    .labelsHidden()
                     
-                    HStack{
-                        Text(gameSpeed ? "ON" : "OFF")
-                        Toggle("", isOn: $gameSpeed)
-                            .labelsHidden()
-                            .padding()
-                        
-                        
-                        Text("　高速　")
-                            .padding()
-                        
-                        
-                        Text(gameSpeed2 ? "ON" : "OFF")
-                        Toggle("", isOn: $gameSpeed2)
-                            .labelsHidden()
-                            .padding()
-                        
-                    }//HStack(gameSpeed)
+                    Text(iphoneBtn2 ? "" : "")
+                    Toggle("", isOn: $iphoneBtn2)
+                        .labelsHidden()
+                }//Size
+                
+                VStack{
+                    Text("　高速　")
+                        .padding()
                     
-                    HStack{
-                        Text(highCastTime ? "ON" : "OFF")
-                        Toggle("", isOn: $highCastTime)
-                            .labelsHidden()
-                            .padding()
-                        
-                        
-                        Text(" CT減少 ")
-                            .padding()
-                        
-                        
-                        Text(highCastTime2 ? "ON" : "OFF")
-                        Toggle("", isOn: $highCastTime2)
-                            .labelsHidden()
-                            .padding()
-                        
-                    }//HStack(highCastTime)
+                    Text(gameSpeed2 ? "" : "")
+                    Toggle("", isOn: $gameSpeed2)
+                        .labelsHidden()
+                }//Speed
+                
+                VStack{
+                    Text(" CT減少 ")
+                        .padding()
                     
-                    HStack{
-                        Text(appleCare ? "ON" : "OFF")
-                        Toggle("", isOn: $appleCare)
-                            .labelsHidden()
-                            .padding()
-                        
-                        
-                        Text(" Apple Care  ")
-                        
-                        
-                        Text(appleCare2 ? "ON" : "OFF")
-                        Toggle("", isOn: $appleCare2)
-                            .labelsHidden()
-                            .padding()
-                        
-                    }//HStack(appleCare)
+                    Text(highCastTime2 ? "" : "")
+                    Toggle("", isOn: $highCastTime2)
+                        .labelsHidden()
+                }//CT
+                
+                
+                VStack{
+                    Text("Apple Care")
+                        .padding()
                     
-                }//VStack(Toggle)
+                    Text(appleCare2 ? "" : "")
+                    Toggle("", isOn: $appleCare2)
+                        .labelsHidden()
+                }//Apple Care
+                
                 
                 Spacer()
                 
@@ -140,34 +86,34 @@ struct GameSetting: View {
                 
             }//VStack(All)
             
-/*時間設定用のスクリーン------------------------*/
-//            VStack{
-//
-//            Text("時間")
-//                .font(.title)
-//                .padding()
-//
-//            HStack{
-//                Text("30")
-//
-//                Text("60")
-//
-//                Text("無限")
-//            }//HStack(30, 60, FreeTime)
-//
-//                Text("先攻")
-//                    .padding()
-//
-//                HStack{
-//                    Text("プレイヤー1")
-//                    Text("プレイヤー2")
-//                }
-//
-//                Spacer()
-//            }VStack(TimeSetting Screen)
-/*----------------------------------------------*/
+            /*時間設定用のスクリーン------------------------*/
+            //            VStack{
+            //
+            //            Text("時間")
+            //                .font(.title)
+            //                .padding()
+            //
+            //            HStack{
+            //                Text("30")
+            //
+            //                Text("60")
+            //
+            //                Text("無限")
+            //            }//HStack(30, 60, FreeTime)
+            //
+            //                Text("先攻")
+            //                    .padding()
+            //
+            //                HStack{
+            //                    Text("プレイヤー1")
+            //                    Text("プレイヤー2")
+            //                }
+            //
+            //                Spacer()
+            //            }VStack(TimeSetting Screen)
+            /*-------------------------------------------*/
             
-        }//HStack(All + Time)
+        //}//HStack(All + Time)
     }//body
 }//GameSetting
 
