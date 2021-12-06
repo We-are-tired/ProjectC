@@ -10,6 +10,8 @@ import SwiftUI
 struct Newton: View {
     @ObservedObject var move = ViewModel()
     @ObservedObject var data: Data = .data
+    /// ゲーム設定画面で決めた設定
+    let model = Setting.model
     //    端末の画面の縦横の大きさを取得
     let w = UIScreen.main.bounds.width
     let h = UIScreen.main.bounds.height
@@ -57,7 +59,7 @@ struct Newton: View {
             //  iPhone
             Image(systemName: "iphone")
                 .resizable()
-                .frame(width: 40, height: 70)
+                .frame(width: model.iPhoneSize.w, height: model.iPhoneSize.h)
             //.background(Color.green)
                 .position(x: move.phone[0], y: move.phone[1])
             

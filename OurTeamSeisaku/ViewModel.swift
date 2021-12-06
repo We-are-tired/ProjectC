@@ -23,25 +23,29 @@ class ViewModel: ObservableObject{
     
     @ObservedObject var data: Data = .data
     @State var timerHandler : Timer?
-    //    端末の画面の縦横の大きさを取得
+    ///    端末の画面の縦横の大きさを取得
     let w = UIScreen.main.bounds.width
     let h = UIScreen.main.bounds.height
     @Published var gameTime = 3000
-    //    障害物の移動の可、不可 [1,2,3,4]
+    ///    障害物の移動の可、不可 [1,2,3,4]
     @Published var moving = [false,false,false,false]
-    //    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
+    ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
     @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
     //    obstacleSize
     var obSize = [CGFloat(70),CGFloat(50)]
-    //    スマホの場所[w,h]
+    ///    スマホの場所[w,h]
     @Published var phone = [CGFloat(0),CGFloat(0)]
-    @Published var health = 3
+    @Published var health: Int
     
     @Published var message = ""
     @Published var isPlay = false
     var count = 0
     var obNum = 4
 //    var speed = CGFloat(2)
+    
+    init() {
+        self.health = model.hitPoint
+    }
     
     
     func set() {
@@ -106,7 +110,6 @@ class ViewModel: ObservableObject{
     func judge() {
         let wid = obSize[0]/2 + 20
         let hig = obSize[1]/2 + 35
-        print("judge")
         for i in 0...3 {
             if (obstacle[i].x-wid <= phone[0] && obstacle[i].x+wid >= phone[0])
                 && (obstacle[i].y-hig <= phone[1] && obstacle[i].y+hig >= phone[1]){

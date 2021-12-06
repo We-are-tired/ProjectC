@@ -43,7 +43,8 @@ class GameSettingViewModel: ObservableObject {
         model.adjusting(fallingSpeed: isSpeed ? 3 : 2)
         model.adjusting(coolTime: isHighCastTime ? 3 : 2)
         model.adjusting(hitPoint: isAppleCare ? 3 : 2)
-        model.adjusting(iPhoneSize: isiPhoneSize ? 3 : 2)
+        model.adjusting(iPhoneSize: isiPhoneSize ? (w:CGFloat(40),h:CGFloat(70)) :
+                            (w:CGFloat(30),h:CGFloat(50)))
     }
     
 }

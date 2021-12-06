@@ -82,23 +82,14 @@ struct GameSetting: View {
                 
                 Spacer()
                 
-<<<<<<< HEAD
-                Text("スタート")
-                    .font(.title)
-                    .padding()
-                    .onTapGesture {
-                        mainView().changeView(view: "Newton")
-                    }
-                
-=======
                 Button {
-                    viewModel.settings()
+                    mainView().changeView(view: "Newton")
                 } label: {
                     Text("スタート")
                         .font(.title)
                         .padding()
                 }
->>>>>>> refs/remotes/origin/main
+
             }//VStack(All)
             
             /*時間設定用のスクリーン------------------------*/

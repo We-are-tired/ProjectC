@@ -16,7 +16,7 @@ struct OurTeamSeisakuApp: App {
             //Newton()
 
             //mainView()
-            Newton()
+            //Newton()
 //            GameSetting()
         }
     }

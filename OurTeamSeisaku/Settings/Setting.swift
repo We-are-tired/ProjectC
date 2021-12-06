@@ -20,7 +20,7 @@ class Setting {
     var coolTime = 5
     
     /// iPhoneの大きさ
-    var iPhoneSize = 3
+    var iPhoneSize = (w:CGFloat(70),h:CGFloat(70))
     
     private init() {
         //なにか処理あれば
@@ -44,7 +44,7 @@ class Setting {
         print(coolTime)
     }
     
-    func adjusting(iPhoneSize: Int) {
+    func adjusting(iPhoneSize: (w:CGFloat,h:CGFloat)) {
         self.iPhoneSize = iPhoneSize
         print(iPhoneSize)
     }
