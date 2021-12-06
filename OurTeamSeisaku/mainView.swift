@@ -23,6 +23,9 @@ struct mainView: View {
             if self.data.menuBar {
                 menuButtonView()
             }
+            if self.data.view == "Setting"{
+                GameSetting()
+            }
             if self.data.view == "Newton"{
                 Newton()
             }

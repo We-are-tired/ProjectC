@@ -83,6 +83,9 @@ struct GameSetting: View {
                 Text("スタート")
                     .font(.title)
                     .padding()
+                    .onTapGesture {
+                        mainView().changeView(view: "Newton")
+                    }
                 
             }//VStack(All)
             

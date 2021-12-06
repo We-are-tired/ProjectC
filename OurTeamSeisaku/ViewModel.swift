@@ -74,6 +74,7 @@ class ViewModel: ObservableObject{
                 self.judge()
             }
     }
+    
     //    画面上にある障害物を下に移動させていく
     func moveDown(num: Int) {
         obstacle[num].y += model.fallingSpeed

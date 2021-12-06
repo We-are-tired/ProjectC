@@ -25,7 +25,7 @@ struct homeView: View {
                 Spacer()
                 
                 Button("遊ぶ"){
-                    mainView().changeView(view: "Newton")
+                    mainView().changeView(view: "Setting")
                 }.font(.title)
                 
 //                Button("\(mode)で遊ぶ"){
