@@ -19,23 +19,34 @@ class Setting {
     /// オブジェクトを再度生成するまでの時間
     var coolTime = 5
     
+    /// iPhoneの大きさ
+    var iPhoneSize = 3
+    
     private init() {
         //なにか処理あれば
     }
     
-    // 落下速度の調整。引数あり返り値あり
+    // 落下速度の調整
     func adjusting(fallingSpeed: Int) {
         self.fallingSpeed = CGFloat(fallingSpeed)
+        print(fallingSpeed)
     }
     
     // HPの調整
-    func adjusting(hitPoint:Int) {
+    func adjusting(hitPoint: Int) {
         self.hitPoint = hitPoint
+        print(hitPoint)
     }
     
     // クールタイムの設定
-    func adjusting(coolTime:Int) {
+    func adjusting(coolTime: Int) {
         self.coolTime = coolTime
+        print(coolTime)
+    }
+    
+    func adjusting(iPhoneSize: Int) {
+        self.iPhoneSize = iPhoneSize
+        print(iPhoneSize)
     }
     
 }

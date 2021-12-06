@@ -9,15 +9,17 @@ import SwiftUI
 
 struct GameSetting: View {
     
-    @State private var iphoneBtn = true
-    @State private var gameSpeed = true
-    @State private var highCastTime = true
-    @State private var appleCare = true
+//    @State private var iphoneBtn = true
+//    @State private var gameSpeed = true
+//    @State private var highCastTime = true
+//    @State private var appleCare = true
     
-    @State private var iphoneBtn2 = true
-    @State private var gameSpeed2 = true
-    @State private var highCastTime2 = true
-    @State private var appleCare2 = true
+//    @State private var viewModel.isiPhoneSize = true
+//    @State private var viewModel.isSpeed = true
+//    @State private var viewModel.isHighCastTime = true
+//    @State private var viewModel.isAppleCare = true
+    
+    @ObservedObject var viewModel = GameSettingViewModel()
     
     var body: some View {
         
@@ -44,8 +46,8 @@ struct GameSetting: View {
                     //Toggle("", isOn: $iphoneBtn2)
                     //    .labelsHidden()
                     
-                    Text(iphoneBtn2 ? "" : "")
-                    Toggle("", isOn: $iphoneBtn2)
+                    Text(viewModel.isiPhoneSize ? "" : "")
+                    Toggle("", isOn: $viewModel.isiPhoneSize)
                         .labelsHidden()
                 }//Size
                 
@@ -53,8 +55,8 @@ struct GameSetting: View {
                     Text("　高速　")
                         .padding()
                     
-                    Text(gameSpeed2 ? "" : "")
-                    Toggle("", isOn: $gameSpeed2)
+                    Text(viewModel.isSpeed ? "" : "")
+                    Toggle("", isOn: $viewModel.isSpeed)
                         .labelsHidden()
                 }//Speed
                 
@@ -62,8 +64,8 @@ struct GameSetting: View {
                     Text(" CT減少 ")
                         .padding()
                     
-                    Text(highCastTime2 ? "" : "")
-                    Toggle("", isOn: $highCastTime2)
+                    Text(viewModel.isHighCastTime ? "" : "")
+                    Toggle("", isOn: $viewModel.isHighCastTime)
                         .labelsHidden()
                 }//CT
                 
@@ -72,18 +74,21 @@ struct GameSetting: View {
                     Text("Apple Care")
                         .padding()
                     
-                    Text(appleCare2 ? "" : "")
-                    Toggle("", isOn: $appleCare2)
+                    Text(viewModel.isAppleCare ? "" : "")
+                    Toggle("", isOn: $viewModel.isAppleCare)
                         .labelsHidden()
                 }//Apple Care
                 
                 
                 Spacer()
                 
-                Text("スタート")
-                    .font(.title)
-                    .padding()
-                
+                Button {
+                    viewModel.settings()
+                } label: {
+                    Text("スタート")
+                        .font(.title)
+                        .padding()
+                }
             }//VStack(All)
             
             /*時間設定用のスクリーン------------------------*/

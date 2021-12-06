@@ -13,6 +13,7 @@ struct OurTeamSeisakuApp: App {
         WindowGroup {
             //mainView()
             Newton()
+//            GameSetting()
         }
     }
 }
