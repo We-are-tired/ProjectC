@@ -29,10 +29,11 @@ class ViewModel: ObservableObject{
     @Published var gameTime = 3000
     ///    障害物の移動の可、不可 [1,2,3,4]
     @Published var moving = [false,false,false,false]
+    ///  障害物の種類,大きさ
+    @Published var obstacleData = (name:"cloud.rain.fill",w:CGFloat(70),h:CGFloat(50))
     ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
     @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
-    //    obstacleSize
-    var obSize = [CGFloat(70),CGFloat(50)]
+    
     ///    スマホの場所[w,h]
     @Published var phone = [CGFloat(0),CGFloat(0)]
     @Published var health: Int
@@ -82,6 +83,16 @@ class ViewModel: ObservableObject{
     //    画面上にある障害物を下に移動させていく
     func moveDown(num: Int) {
         obstacle[num].y += model.fallingSpeed
+        
+        switch obstacleData.name {
+        case "flame.fill":
+            fireMove(num: num)
+        case "battery.100.bolt":
+            overChageMove(num: num)
+        default:
+            return
+        }
+        
         // 画面外にいくと再配置,停止
         if obstacle[num].y >= h+50{
             moving[num]=false
@@ -89,6 +100,14 @@ class ViewModel: ObservableObject{
             obstacle[num].y = 30
             obNum += 1
         }
+    }
+    
+    func fireMove(num:Int) {
+        
+    }
+    
+    func overChageMove(num:Int) {
+        
     }
     
     //    画面上部をタップした時に
@@ -108,8 +127,8 @@ class ViewModel: ObservableObject{
     
     //    画像が重なるかどうか検知する
     func judge() {
-        let wid = obSize[0]/2 + model.iPhoneSize.w/2
-        let hig = obSize[1]/2 + model.iPhoneSize.h/2
+        let wid = obstacleData.w/2 + model.iPhoneSize.w/2
+        let hig = obstacleData.h/2 + model.iPhoneSize.h/2
         for i in 0...3 {
             if (obstacle[i].x-wid <= phone[0] && obstacle[i].x+wid >= phone[0])
                 && (obstacle[i].y-hig <= phone[1] && obstacle[i].y+hig >= phone[1]){

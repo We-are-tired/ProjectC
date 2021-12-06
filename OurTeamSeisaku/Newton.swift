@@ -51,9 +51,9 @@ struct Newton: View {
             Group{
                 if move.isPlay {
                     ForEach(0..<4) { i in
-                        Image(systemName: "cloud.rain.fill")
+                        Image(systemName: move.obstacleData.name)
                             .resizable()
-                            .frame(width: obSize[0], height: obSize[1])
+                            .frame(width: move.obstacleData.w, height: move.obstacleData.h)
                         //.background(Color.red)
                             .position(x: move.obstacle[i].x, y: move.obstacle[i].y)
                     }
