@@ -94,22 +94,22 @@ class ViewModel: ObservableObject{
     //    画面上部をタップした時に
     //    タップした座標に障害物を置く
     func summon(x: CGFloat,y: CGFloat) {
-        count += 1
         if obNum >= 1{
-            self.moving[count-1]=true
-            obstacle[count-1].x = x
-            obstacle[count-1].y = y
+            self.moving[count]=true
+            obstacle[count].x = x
+            obstacle[count].y = y
+            count += 1
+            obNum -= 1
         }
         if count == 4{
             count = 0
         }
-        obNum -= 1
     }
     
     //    画像が重なるかどうか検知する
     func judge() {
-        let wid = obSize[0]/2 + 20
-        let hig = obSize[1]/2 + 35
+        let wid = obSize[0]/2 + model.iPhoneSize.w/2
+        let hig = obSize[1]/2 + model.iPhoneSize.h/2
         for i in 0...3 {
             if (obstacle[i].x-wid <= phone[0] && obstacle[i].x+wid >= phone[0])
                 && (obstacle[i].y-hig <= phone[1] && obstacle[i].y+hig >= phone[1]){

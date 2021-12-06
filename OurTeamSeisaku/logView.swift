@@ -21,51 +21,49 @@ struct logView: View {
                     }
                         .font(.title)
                 }
-                Text("\(mode)の記録")
-                    .font(.largeTitle)
+                
                 
                 Spacer()
                 
-                logs()
-                
-                Spacer()
-                
-                HStack(spacing: 10){
-                    Image("rudo")
-                        .resizable()
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 3)
-                        .onTapGesture {mode = "るどー"}
-                    Image("uno")
-                        .resizable()
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 3)
-                        .onTapGesture {mode = "うの"}
-                    Image("poke")
-                        .resizable()
-                        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: 100)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 3)
-                        .onTapGesture {mode = "p⚪︎kem⚪︎n"}
+                ForEach(1..<6){ num in
+                    logs(num: num)
                 }
-                Spacer().frame(height: 10)
+                
+                Spacer()
+                
             }
         }
     }
 }
 
 struct logs: View {
+    let w = UIScreen.main.bounds.width * 0.95
+    let h = UIScreen.main.bounds.height
+    let num: Int
     var body: some View {
-        VStack{
-            Group{
-                Text("名前１ vs 名前2")
-                Text("名前１ vs 名前2")
-                Text("名前１ vs 名前2")
-                Text("名前１ vs 名前2")
-                Text("名前１ vs 名前2")
-            }.font(.title2)
-            .padding()
-            .border(Color.black)
-        }
+        HStack{
+            Text("\(num)")
+            VStack{
+                Image("kids1")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text("高山 恐男")
+            }
+            Text("&")
+            VStack{
+                Image("kids2")
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                Text("横上 縦子")
+            }
+            VStack{
+                Text("時間")
+                Text("端末")
+                Text("AppleCare")
+            }
+            Text("WIN")
+        }.frame(width: w, height: h/8)
+        .border(Color.black)
     }
 }
     
