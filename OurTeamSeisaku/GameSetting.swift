@@ -83,6 +83,7 @@ struct GameSetting: View {
                 Spacer()
                 
                 Button {
+                    viewModel.settings()
                     mainView().changeView(view: "Newton")
                 } label: {
                     Text("スタート")
