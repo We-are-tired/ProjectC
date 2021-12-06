@@ -10,33 +10,40 @@ import SwiftUI
 
 // FIXME:多分だけど全ての引数がbool。書き直し
 class GameSettingViewModel: ObservableObject {
-    // Intなのか？
-    @Published var fallingSpeed: CGFloat
-    @Published var hitPoint: Int
+    @Published var isSpeed = true
+    @Published var isAppleCare = true
+    @Published var isiPhoneSize = true
+    @Published var isHighCastTime = true
+
     let model = Setting.model
     
-    init() {
-        self.fallingSpeed = model.fallingSpeed
-        self.hitPoint = model.hitPoint
-    }
+//    // スピードを設定する。引数にはInt?何が来るのかわからないので
+//    func settingsSpeed(is speed: Int) {
+//        // イコールじゃなくてOK
+//        model.adjusting(fallingSpeed: speed)
+//    }
+//
+//    func settingCoolTime(is time: Int) {
+//        model.adjusting(coolTime: time)
+//    }
+//
+//    func appleCare(isJoining: Bool) {
+//        if isJoining {
+//            model.adjusting(hitPoint: 3)
+//        } else {
+//            model.adjusting(hitPoint: 2)
+//        }
+//    }
     
-    // スピードを設定する。引数にはInt?何が来るのかわからないので
-    func settingsSpeed(is speed: Int) {
-        // イコールじゃなくてOK
-        model.adjusting(fallingSpeed: speed)
-    }
     
-    func settingCoolTime(is time: Int) {
-        model.adjusting(coolTime: time)
+    //FIXME: なおす
+    func settings() {
+        print(isSpeed, isiPhoneSize, isAppleCare, isHighCastTime)
+        
+        model.adjusting(fallingSpeed: isSpeed ? 3 : 2)
+        model.adjusting(coolTime: isHighCastTime ? 3 : 2)
+        model.adjusting(hitPoint: isAppleCare ? 3 : 2)
+        model.adjusting(iPhoneSize: isiPhoneSize ? 3 : 2)
     }
-    
-    func appleCare(isJoining: Bool) {
-        if isJoining {
-            model.adjusting(hitPoint: 3)
-        } else {
-            model.adjusting(hitPoint: 2)
-        }
-    }
-    
     
 }
