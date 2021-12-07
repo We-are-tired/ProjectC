@@ -135,7 +135,7 @@ class ViewModel: ObservableObject{
             // 高速で下へ(counter[num].0=false)
             obstacle[num].y += model.fallingSpeed*4
         }
-        if counter[num].x >= 50{
+        if counter[num].x >= 100{
             counter[num].0.toggle()
             counter[num].x = 0
         }

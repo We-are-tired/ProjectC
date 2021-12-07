@@ -20,7 +20,7 @@ struct GameSetting: View {
 //    @State private var viewModel.isAppleCare = true
     
     @ObservedObject var viewModel = GameSettingViewModel()
-    
+    var kidsNum = (1,5)
     var body: some View {
         
         //HStack{時間設定を横に出す時に必要になる
@@ -29,7 +29,7 @@ struct GameSetting: View {
                 Spacer()
                 
                 VStack{
-                    Image(systemName:"person")
+                    Image("kids\(kidsNum.0)")
                         .resizable()
                         .frame(width: 55, height: 55)
                     
