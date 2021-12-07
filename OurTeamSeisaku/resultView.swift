@@ -13,7 +13,8 @@ struct resultView: View {
         ZStack{
             VStack{
                 // ViewModel 211 行の内容をうまく並べてくだせえ
-                //["kids1の(数字)","ユーザー名１","kids2の(数字)","ユーザー名２","\(gameTime)","phoneNaem","Applecare"]
+                //data=["kids1の(数字)","ユーザー名１","kids2の(数字)","ユーザー名２",
+                //"\(gameTime)","phoneNaem","落ちる速度","Applecare(ON/OFF)","障害物の名前"]
                 Button("戻る"){                    
                     mainView().changeView(view: "Setting")
                 }.font(.title3)

@@ -21,7 +21,7 @@ struct menuButtonView: View {
                                     .resizable()
                             }
                             Button(action: {
-                                mainView().changeView(view: "home")
+                                mainView().changeView(view: "Setting")
                             }) {
                                 Image(systemName: "house.fill")
                                     .resizable()

@@ -209,6 +209,6 @@ class ViewModel: ObservableObject{
         let data = GameSettingViewModel()
         // logView101行目にaddlog()
         logManager().addlog(newLog: ["\(GameSetting().kidsNum.0)","\(data.userName1)","\(GameSetting().kidsNum.1)","\(data.userName2)",
-                                     "\(gameTime)","\(data.iphoneName)","aaa"])
+                                     "\(gameTime)","\(data.iphoneName)","\(model.fallingSpeed)","aaa",obstacleData.name])
     }
 }

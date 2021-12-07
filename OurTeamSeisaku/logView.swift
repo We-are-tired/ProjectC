@@ -41,20 +41,20 @@ struct logs: View {
     let h = UIScreen.main.bounds.height
     let num: Int
     @State var allLog:[[String]] = []
-    @State var log:[String] = ["","","","","","",""]
+    @State var log:[String] = ["","","","","","","","",""]
     var body: some View {
         HStack{
             if num <= allLog.count{
                 Text("\(num)")
                 VStack{
-                    Image(log[0])
+                    Image("kids\(log[0])")
                         .resizable()
                         .frame(width: 50, height: 50)
                     Text(log[1])
                 }
                 Text("&")
                 VStack{
-                    Image(log[2])
+                    Image("kids\(log[2])")
                         .resizable()
                         .frame(width: 50, height: 50)
                     Text(log[3])
@@ -62,9 +62,13 @@ struct logs: View {
                 VStack{
                     Text("時間\(log[4])")
                     Text("端末\(log[5])")
-                    Text("AppleCare\(log[6])")
+                    Text("速度\(log[6])")
+                    Text("AppleCare\(log[7])")
+                    
                 }
-                Text("WIN")
+                Image(log[8])
+                    .resizable()
+                    .frame(width: 50, height: 50)
             } else {
                 Text("\(num)回前のきろくはないよ！\nもっとお友達と遊ぼうね！")
                     .font(.title)
