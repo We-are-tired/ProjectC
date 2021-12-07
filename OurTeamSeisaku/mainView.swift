@@ -26,6 +26,9 @@ struct mainView: View {
             if self.data.view == "Newton"{
                 Newton()
             }
+            if self.data.view == "result"{
+                resultView()
+            }
         }
     }
     

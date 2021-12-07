@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F33ECAD275F8E0000FBF511 /* resultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33ECAC275F8E0000FBF511 /* resultView.swift */; };
 		7F9BDA21274B405900FB56B3 /* OurTeamSeisakuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA20274B405900FB56B3 /* OurTeamSeisakuApp.swift */; };
 		7F9BDA25274B405D00FB56B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F9BDA24274B405D00FB56B3 /* Assets.xcassets */; };
 		7F9BDA28274B405D00FB56B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F9BDA27274B405D00FB56B3 /* Preview Assets.xcassets */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F33ECAC275F8E0000FBF511 /* resultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultView.swift; sourceTree = "<group>"; };
 		7F9BDA1D274B405900FB56B3 /* OurTeamSeisaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurTeamSeisaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F9BDA20274B405900FB56B3 /* OurTeamSeisakuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurTeamSeisakuApp.swift; sourceTree = "<group>"; };
 		7F9BDA24274B405D00FB56B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				7F9BDA37274B40A600FB56B3 /* logView.swift */,
 				7FC549E1275B6EED00B0386B /* GameSetting.swift */,
 				7FA4AAF12756610A00C86539 /* Newton.swift */,
+				7F33ECAC275F8E0000FBF511 /* resultView.swift */,
 				7FC549DF275B4B8C00B0386B /* ViewModel.swift */,
 				7F9BDA46274B650400FB56B3 /* menuButtonView.swift */,
 				7FDCC4B9275B89C000C4D197 /* Settings */,
@@ -177,6 +180,7 @@
 				7FA4AAF22756610A00C86539 /* Newton.swift in Sources */,
 				7F9BDA31274B407A00FB56B3 /* titleView.swift in Sources */,
 				7F9BDA3E274B420D00FB56B3 /* mainView.swift in Sources */,
+				7F33ECAD275F8E0000FBF511 /* resultView.swift in Sources */,
 				7FDCC4BB275B89E800C4D197 /* GameSettingViewModel.swift in Sources */,
 				7FC549E0275B4B8C00B0386B /* ViewModel.swift in Sources */,
 				7F9BDA47274B650400FB56B3 /* menuButtonView.swift in Sources */,

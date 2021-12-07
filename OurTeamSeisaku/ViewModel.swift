@@ -23,10 +23,12 @@ class ViewModel: ObservableObject{
     
     @ObservedObject var data: Data = .data
     @State var timerHandler : Timer?
+    @State var gravity : Timer?
+    
     ///    端末の画面の縦横の大きさを取得
     let w = UIScreen.main.bounds.width
     let h = UIScreen.main.bounds.height
-    @Published var gameTime = 3000
+    @Published var gameTime = 0
     ///    障害物の移動の可、不可 [1,2,3,4]
     @Published var moving = [false,false,false,false]
     
@@ -69,9 +71,9 @@ class ViewModel: ObservableObject{
         }
         isPlay = true
         startTimer()
+        addGravity()
     }
     
-    //    0.01秒毎に動くエンジン的なもの
     func startTimer(){
         if let unwrapedTimerHandler = timerHandler{
             if unwrapedTimerHandler.isValid == true{
@@ -79,6 +81,19 @@ class ViewModel: ObservableObject{
             }
         }
         timerHandler = Timer.scheduledTimer(
+            withTimeInterval: 1.0, repeats: true){ _ in
+                self.gameTime += 1
+            }
+    }
+    
+    //    0.01秒毎に動くエンジン的なもの
+    func addGravity(){
+        if let unwrapedGravity = gravity{
+            if unwrapedGravity.isValid == true{
+                return
+            }
+        }
+        gravity = Timer.scheduledTimer(
             withTimeInterval: 0.01, repeats: true){ _ in
                 //self.gameTime -= 1
                 if self.moving[0]{self.moveDown(num: 0)}
@@ -182,5 +197,18 @@ class ViewModel: ObservableObject{
         }
         count = 0
         health -= 1
+        if health <= 0 {
+            gameOver()
+        }
+    }
+    
+    func gameOver() {
+        timerHandler?.invalidate()
+        gravity?.invalidate()
+        message = "故障してしまった"
+        let data = GameSettingViewModel()
+        // logView101行目にaddlog()
+        logManager().addlog(newLog: ["\(GameSetting().kidsNum.0)","\(data.userName1)","\(GameSetting().kidsNum.1)","\(data.userName2)",
+                                     "\(gameTime)","\(data.iphoneName)","aaa"])
     }
 }

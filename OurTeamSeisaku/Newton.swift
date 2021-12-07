@@ -82,7 +82,7 @@ struct Newton: View {
                 
                 HStack{
                     Spacer()
-                    Text("残り\(move.gameTime)秒")
+                    Text("寿命\(move.gameTime)秒")
                 }
                 
                 HStack{
@@ -93,7 +93,20 @@ struct Newton: View {
                 }
                 Spacer()
             }
-            
+            //  故障
+            Group{
+                if move.health == 0{
+                    Image("bord")
+                        .resizable()
+                        .edgesIgnoringSafeArea(.all)
+                        .onTapGesture {return}
+                    VStack{
+                        Button("故障しました。"){
+                            mainView().changeView(view: "result")
+                        }
+                    }
+                }
+            }
         } // ZS
         
         .onAppear(){
