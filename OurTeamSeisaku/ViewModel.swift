@@ -29,10 +29,17 @@ class ViewModel: ObservableObject{
     @Published var gameTime = 3000
     ///    障害物の移動の可、不可 [1,2,3,4]
     @Published var moving = [false,false,false,false]
+    
     ///  障害物の種類,大きさ
-    @Published var obstacleData = (name:"cloud.rain.fill",w:CGFloat(70),h:CGFloat(50))
+    ///  name:"cloud.rain.fill" 雨
+    ///  name:"flame.fill" 過熱
+    ///  name:"battery.100.bolt" 過充電
+    @Published var obstacleData = (name:"battery.100.bolt",w:CGFloat(70),h:CGFloat(50))
+    
     ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
     @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
+    /// 炎の揺れ、チャージの管理
+    var counter:[(Bool,x:Int)] = []
     
     ///    スマホの場所[w,h]
     @Published var phone = [CGFloat(0),CGFloat(0)]
@@ -57,6 +64,7 @@ class ViewModel: ObservableObject{
             // 4つの障害物を右上にセット
             obstacle[i].x = w-30
             obstacle[i].y = 30
+            counter.append((true, x: 0))
         }
         isPlay = true
         startTimer()
@@ -98,16 +106,39 @@ class ViewModel: ObservableObject{
             moving[num]=false
             obstacle[num].x = w-30
             obstacle[num].y = 30
+            counter[num].0 = true
             obNum += 1
         }
     }
     
     func fireMove(num:Int) {
-        
+        counter[num].x += 1
+        if counter[num].0 {
+            // 左へ(counter[num].0 = true)
+            obstacle[num].x -= 1
+        } else {
+            // 右へ(counter[num].0=false)
+            obstacle[num].x += 1
+        }
+        if counter[num].x >= 50{
+            counter[num].0.toggle()
+            counter[num].x = 0
+        }
     }
     
     func overChageMove(num:Int) {
-        
+        if counter[num].0 {
+            // 上へ(counter[num].0 = true)
+            counter[num].x += 1
+            obstacle[num].y -= model.fallingSpeed+1
+        } else {
+            // 高速で下へ(counter[num].0=false)
+            obstacle[num].y += model.fallingSpeed*4
+        }
+        if counter[num].x >= 50{
+            counter[num].0.toggle()
+            counter[num].x = 0
+        }
     }
     
     //    画面上部をタップした時に
@@ -145,6 +176,7 @@ class ViewModel: ObservableObject{
             obstacle[n].x = w-30
             obstacle[n].y = 30
             moving[n] = false
+            counter[n] = (true, x: 0)
             obNum = 4
         }
         count = 0
