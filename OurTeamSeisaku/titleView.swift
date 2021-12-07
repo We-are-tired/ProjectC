@@ -31,7 +31,7 @@ struct titleView: View {
                 Spacer().frame(height: 100)
                 
                 Button("はい。"){
-                    mainView().changeView(view: "home")
+                    mainView().changeView(view: "Setting")
                 }.font(.title3)
             }
         }

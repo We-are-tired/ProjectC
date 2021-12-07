@@ -17,7 +17,7 @@ struct logView: View {
                 HStack{
                     Spacer()
                     Button("戻る"){
-                        mainView().changeView(view: "home")
+                        mainView().changeView(view: "Setting")
                     }
                         .font(.title)
                 }

@@ -14,9 +14,6 @@ struct mainView: View {
             if self.data.view == "title"{
                 titleView()
             }
-            if self.data.view == "home"{
-                homeView()
-            }
             if self.data.view == "log"{
                 logView()
             }

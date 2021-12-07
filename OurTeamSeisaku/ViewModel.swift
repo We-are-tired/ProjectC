@@ -43,6 +43,7 @@ class ViewModel: ObservableObject{
     
     ///    スマホの場所[w,h]
     @Published var phone = [CGFloat(0),CGFloat(0)]
+    ///   スマホの大きさ
     @Published var health: Int
     
     @Published var message = ""

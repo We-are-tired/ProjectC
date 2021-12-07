@@ -17,6 +17,17 @@ struct GameSetting: View {
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
+            VStack{
+                HStack{
+                    Spacer()
+                    Button("きろく"){
+                        mainView().changeView(view: "log")
+                    }
+                        .font(.title)
+                }
+                Spacer()
+            }
+            
             HStack{//ユーザーの横並び
                 ///左側のユーザー（初期値は落とす側）
                 VStack{
