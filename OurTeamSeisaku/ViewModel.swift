@@ -36,7 +36,7 @@ class ViewModel: ObservableObject{
     ///  name:"cloud.rain.fill" 雨
     ///  name:"flame.fill" 過熱
     ///  name:"battery.100.bolt" 過充電
-    @Published var obstacleData = (name:"battery.100.bolt",w:CGFloat(70),h:CGFloat(50))
+    @Published var obstacleData = (name:"cloud.rain.fill",w:CGFloat(70),h:CGFloat(50))
     
     ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
     @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
@@ -60,6 +60,8 @@ class ViewModel: ObservableObject{
     
     
     func set() {
+        let music = Audio()
+        music.playMusic(order: "\(obstacleData.name)")
         for i in 0...3 {
             let position = (x: w, y: CGFloat(0))
             // obstacle配列に4つの障害物を追加
@@ -119,7 +121,7 @@ class ViewModel: ObservableObject{
         
         // 画面外にいくと再配置,停止
         if obstacle[num].y >= h+50{
-            moving[num]=false
+            moving[num] = false
             obstacle[num].x = w-30
             obstacle[num].y = 30
             counter[num].0 = true
@@ -203,6 +205,7 @@ class ViewModel: ObservableObject{
     }
     
     func gameOver() {
+        Audio().stopMusic()
         timerHandler?.invalidate()
         gravity?.invalidate()
         message = "故障してしまった"
