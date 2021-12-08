@@ -23,7 +23,7 @@ struct GameSetting: View {
                     Button("きろく"){
                         mainView().changeView(view: "log")
                     }
-                        .font(.title)
+                    .font(.title)
                 }
                 Spacer()
             }
@@ -59,6 +59,11 @@ struct GameSetting: View {
                         HStack(spacing:15){
                             Button{
                                 //enemyItemsの画像切り替え（左）
+                                if(viewModel.itemsArray < viewModel.enemyItems.count - 1) {
+                                    viewModel.itemsArray += 1
+                                } else {
+                                    viewModel.itemsArray = 0
+                                }
                             }label:{
                                 Text("←")
                                     .padding(5)
@@ -66,7 +71,7 @@ struct GameSetting: View {
                             }//障害物・左のボタン
                             
                             //障害物のアイコン
-                            Image(systemName:"\(viewModel.enemyItems)")
+                            Image(systemName:"\(viewModel.enemyItems[viewModel.itemsArray])")
                                 .resizable()
                                 .frame(width: 40, height: 35)
                                 .padding()
@@ -74,6 +79,12 @@ struct GameSetting: View {
                             
                             Button{
                                 //enemyItemsの画像切り替え（右）
+                                if(viewModel.itemsArray > 0) {
+                                    viewModel.itemsArray -= 1
+                                } else {
+                                    viewModel.itemsArray = viewModel.enemyItems.count - 1
+                                }
+
                             }label:{
                                 Text("→")
                                     .padding(5)
@@ -151,33 +162,51 @@ struct GameSetting: View {
                     }//VStack（ユーザー2全般）
                     
                     VStack{
-                        Text("\(viewModel.iphoneName)")
+                        Text(viewModel.isiPhoneSize ? "端末(小)" : "端末(大)")
                             .padding(2.0)
                             .background(Color.white)
                         
                         HStack(spacing:15){
+                            ZStack {
+                                ZStack {
+                                    Image(systemName:"\(viewModel.iphoneItems)")
+                                        .resizable()
+                                        .frame(width: 40, height: 35)
+                                        .padding()
+                                        .background(Color.white)
+                                }
+                                HStack {
+                                if viewModel.isiPhoneSize == true {
+                                    Button{
+                                        //端末の大きさを変える処理
+                                        viewModel.isiPhoneSize = false
+                                    }label:{
+                                        Text("←")
+                                            .padding(5)
+                                            .background(Color.white)
+                                        
+                                    }
+                                } else {
+                                    Spacer()
+                                        
+                                }
+                                Spacer()
+                                    .padding()
                             
-                            Button{
-                                //端末の大きさを変える処理
-                            }label:{
-                                Text("←")
-                                    .padding(5)
-                                    .background(Color.white)
-                                
-                            }
-                            
-                            Image(systemName:"\(viewModel.iphoneItems)")
-                                .resizable()
-                                .frame(width: 40, height: 35)
-                                .padding()
-                                .background(Color.white)
-                            
-                            Button{
-                                //端末の大きさを変える処理
-                            }label:{
-                                Text("→")
-                                    .padding(5)
-                                    .background(Color.white)
+                                if viewModel.isiPhoneSize == false {
+                                    Button{
+                                        //端末の大きさを変える処理
+                                        viewModel.isiPhoneSize = true
+                                    }label:{
+                                        Text("→")
+                                            .padding(5)
+                                            .background(Color.white)
+                                    }
+                                } else {
+                                    Spacer()
+                                    
+                                }
+                                }
                             }
                         }
                         
