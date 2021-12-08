@@ -36,7 +36,7 @@ class ViewModel: ObservableObject{
     ///  name:"cloud.rain.fill" 雨
     ///  name:"flame.fill" 過熱
     ///  name:"battery.100.bolt" 過充電
-    @Published var obstacleData = (name:"battery.100.bolt",w:CGFloat(70),h:CGFloat(50))
+    @Published var obstacleData: (name:String,w:CGFloat,h:CGFloat)
     
     ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
     @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
@@ -56,6 +56,7 @@ class ViewModel: ObservableObject{
     
     init() {
         self.health = model.hitPoint
+        self.obstacleData = (name:model.enemyItem, w:CGFloat(70),h:CGFloat(50))
     }
     
     
@@ -206,9 +207,9 @@ class ViewModel: ObservableObject{
         timerHandler?.invalidate()
         gravity?.invalidate()
         message = "故障してしまった"
-        let data = GameSettingViewModel()
+//        let model = GameSettingViewModel()
         // logView101行目にaddlog()
-        logManager().addlog(newLog: ["\(GameSetting().kidsNum.0)","\(data.userName1)","\(GameSetting().kidsNum.1)","\(data.userName2)",
-                                     "\(gameTime)","\(data.iphoneName)","\(model.fallingSpeed)","aaa",obstacleData.name])
+        logManager().addlog(newLog: ["\(GameSetting().kidsNum.0)","\(model.userName1)","\(GameSetting().kidsNum.1)","\(model.userName2)",
+                                     "\(gameTime)",model.iPhoneSize == (w:CGFloat(40),h:CGFloat(70)) ? "端末(小)" : "端末(大)","\(model.fallingSpeed)","aaa",obstacleData.name])
     }
 }

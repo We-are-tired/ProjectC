@@ -19,11 +19,27 @@ class Setting {
     /// オブジェクトを再度生成するまでの時間
     var coolTime = 5
     
+    /// 降ってくるオブジェクト
+    var enemyItem = "flame.fill"
     /// iPhoneの大きさ
     var iPhoneSize = (w:CGFloat(70),h:CGFloat(70))
     
+    var userName1 = ""
+    var userName2 = ""
+    
     private init() {
         //なにか処理あれば
+    }
+    
+    // ユーザー名の決定
+    func setUsersName(userName1:String, userName2:String) {
+        self.userName1 = userName1
+        self.userName2 = userName2
+    }
+    
+    // 落ちてくるアイテムの決定
+    func setEnemy(enemy:String) {
+        self.enemyItem = enemy
     }
     
     // 落下速度の調整
