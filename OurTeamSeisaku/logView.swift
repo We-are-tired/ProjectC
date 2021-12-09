@@ -25,9 +25,11 @@ struct logView: View {
                 
                 Spacer()
                 
-                ForEach(1..<6){ num in
-                    logs(num: num)
-                }
+                logs(num: 0)
+                logs(num: 1)
+                logs(num: 2)
+                logs(num: 3)
+                logs(num: 4)
                 
                 Spacer()
                 
