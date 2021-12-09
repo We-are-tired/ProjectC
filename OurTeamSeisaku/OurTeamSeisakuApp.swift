@@ -11,13 +11,7 @@ import SwiftUI
 struct OurTeamSeisakuApp: App {
     var body: some Scene {
         WindowGroup {
-
             mainView()
-            //Newton()
-
-            //mainView()
-            //Newton()
-//            GameSetting()
         }
     }
 }

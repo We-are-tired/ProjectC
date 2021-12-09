@@ -29,19 +29,18 @@ class Music: NSObject {
         boltPlayer = try AVAudioPlayer(data: boltData)
         boltPlayer.play()
     } catch {print("bolt エラー")}}
-    
 }
 
 struct Audio {
-    let play = Music()
+    //let play = Music()
     func playMusic(order:String) {
         print(order+"：音楽")
         if order == "cloud.rain.fill" {
-            play.rainPlay()
+            Music().rainPlay()
         } else if order == "flame.fill" {
-            play.flamePlay()
+            Music().flamePlay()
         } else {
-            play.boltPlay()
+            Music().boltPlay()
         }
     }
     

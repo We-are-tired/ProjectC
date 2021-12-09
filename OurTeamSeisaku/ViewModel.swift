@@ -9,19 +9,21 @@ import SwiftUI
 import Foundation
 
 class Data: ObservableObject {
+    //@ObservedObject var data: Data = .data
     private init(){ }
     static let data = Data()
     
     @Published var view = "title"
     @Published var menuBar = true
+    @Published var userName = (a:"",b:"")
+    @Published var kidsNum = (a:1,b:5)
 }
 
-
 class ViewModel: ObservableObject{
+    @ObservedObject var data: Data = .data
     /// ゲーム設定画面で決めた設定
     let model = Setting.model
     
-    @ObservedObject var data: Data = .data
     @State var timerHandler : Timer?
     @State var gravity : Timer?
     
@@ -32,35 +34,25 @@ class ViewModel: ObservableObject{
     ///    障害物の移動の可、不可 [1,2,3,4]
     @Published var moving = [false,false,false,false]
     
+    ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
+    @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
     ///  障害物の種類,大きさ
     ///  name:"cloud.rain.fill" 雨
     ///  name:"flame.fill" 過熱
     ///  name:"battery.100.bolt" 過充電
-
-    //コンフリクト。下のを適応させるby渡辺
-    @Published var obstacleData = (name:"cloud.rain.fill",w:CGFloat(70),h:CGFloat(50))
-    //@Published var obstacleData: (name:String,w:CGFloat,h:CGFloat)
-    
-    ///    obstacle:障害物 の 座標*4[(x,y),(x,y),(x,y)...]
-    @Published var obstacle:[(x: CGFloat, y: CGFloat)] = []
+    @Published var obstacleData = (name:"flame.fill",w:CGFloat(60),h:CGFloat(60))
     /// 炎の揺れ、チャージの管理
     var counter:[(Bool,x:Int)] = []
     
     ///    スマホの場所[w,h]
     @Published var phone = [CGFloat(0),CGFloat(0)]
     ///   スマホの大きさ
-    @Published var health: Int
-    
+    @Published var health = 3
     @Published var message = ""
     @Published var isPlay = false
     var count = 0
     var obNum = 4
 //    var speed = CGFloat(2)
-    
-    init() {
-        self.health = model.hitPoint
-        self.obstacleData = (name:model.enemyItem, w:CGFloat(70),h:CGFloat(50))
-    }
     
     
     func set() {
@@ -191,8 +183,15 @@ class ViewModel: ObservableObject{
     }
     
     //  障害物が当たった時の処理
+    
     func hit() {
-        message = "雨にやられた"
+        switch obstacleData.name {
+        case "cloud.rain.fill": message = "雨にやられた"
+        case "flame.fill": message = "端末熱々！！！"
+        case "battery.100.bolt": message = "過充電してしまった。"
+        default: message = "スマホを落としてしまった"
+        }
+
         // 障害物全てを右上に移動し,停止
         for n in 0...3{
             obstacle[n].x = w-30
@@ -202,8 +201,8 @@ class ViewModel: ObservableObject{
             obNum = 4
         }
         count = 0
-        health -= 1
-        if health <= 0 {
+        model.hitPoint -= 1
+        if model.hitPoint <= 0 {
             gameOver()
         }
     }
@@ -212,10 +211,8 @@ class ViewModel: ObservableObject{
         Audio().stopMusic()
         timerHandler?.invalidate()
         gravity?.invalidate()
-        message = "故障してしまった"
-//        let model = GameSettingViewModel()
-        // logView101行目にaddlog()
-        logManager().addlog(newLog: ["\(GameSetting().kidsNum.0)","\(model.userName1)","\(GameSetting().kidsNum.1)","\(model.userName2)",
+        message = "故障しました。"
+        logManager().addlog(newLog: ["\(data.kidsNum.a)","\(model.userName1)","\(data.kidsNum.b)","\(model.userName2)",
                                      "\(gameTime)",model.iPhoneSize == (w:CGFloat(40),h:CGFloat(70)) ? "端末(小)" : "端末(大)","\(model.fallingSpeed)","aaa",obstacleData.name])
     }
 }

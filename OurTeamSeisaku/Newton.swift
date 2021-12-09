@@ -15,8 +15,6 @@ struct Newton: View {
     //    端末の画面の縦横の大きさを取得
     let w = UIScreen.main.bounds.width
     let h = UIScreen.main.bounds.height
-    //    障害物の横幅、縦幅
-    var obSize = [CGFloat(70),CGFloat(50)]
     
     var body: some View {
         ZStack{
@@ -103,7 +101,11 @@ struct Newton: View {
                     VStack{
                         Button("故障しました。"){
                             mainView().changeView(view: "result")
-                        }
+                        }.font(.title)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(Color.red)
+                        .border(Color.black)
                     }
                 }
             }

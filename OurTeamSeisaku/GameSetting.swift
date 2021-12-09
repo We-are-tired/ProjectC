@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GameSetting: View {
     @ObservedObject var viewModel = GameSettingViewModel()
-    var kidsNum = (1,5)
+    @ObservedObject var data: Data = .data
     
     var body: some View {
         ZStack{
@@ -36,14 +36,14 @@ struct GameSetting: View {
                             //タップでユーザー画像の変更を行う想定
                         }label:{
                             //以下のアイコンは画像に変更予定。仮置きのSFシンボル。
-                            Image("kids\(kidsNum.0)")
+                            Image("kids\(data.kidsNum.a)")
                                 .resizable()
                                 .frame(width: 55, height: 55)
                                 .padding()
                                 .background(Color.white)
                         }//ユーザー1のボタン
                         
-                        TextField("ユーザー1", text: $viewModel.userName1)
+                        TextField("ユーザー1", text: $data.userName.a)
                             .padding()
                             .background(Color.white)
                         
@@ -147,14 +147,14 @@ struct GameSetting: View {
                             //タップでユーザー画像の変更を行う想定
                         }label:{
                             //以下のアイコンは画像に変更予定。仮置きのSFシンボル。
-                            Image("kids\(kidsNum.0)")
+                            Image("kids\(data.kidsNum.b)")
                                 .resizable()
                                 .frame(width: 55, height: 55)
                                 .padding()
                                 .background(Color.white)
                         }//ユーザー2の画像
                         
-                        TextField("ユーザー2", text: $viewModel.userName2)
+                        TextField("ユーザー2", text: $data.userName.b)
                             .padding()
                             .background(Color.white)
                         
@@ -233,17 +233,17 @@ struct GameSetting: View {
             
             VStack{
                 
-                //入替ボタン(画面一番上)
-                Button{
-                    //ユーザー同士を入れ替える処理
-                }
-            label:{
-                Image(systemName: "repeat")
-                    .resizable()
-                    .frame(width: 55, height: 55)
-                    .padding()
-                    .background(Color.white)
-            }
+//                //入替ボタン(画面一番上)
+//                Button{
+//                    //ユーザー同士を入れ替える処理
+//                }
+//            label:{
+//                Image(systemName: "repeat")
+//                    .resizable()
+//                    .frame(width: 55, height: 55)
+//                    .padding()
+//                    .background(Color.white)
+//            }
                 
                 Spacer()
                 

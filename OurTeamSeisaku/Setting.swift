@@ -20,7 +20,7 @@ class Setting {
     var coolTime = 5
     
     /// 降ってくるオブジェクト
-    var enemyItem = "flame.fill"
+    var enemyItem = "battery.100.bolt"
     /// iPhoneの大きさ
     var iPhoneSize = (w:CGFloat(70),h:CGFloat(70))
     
@@ -52,12 +52,6 @@ class Setting {
     func adjusting(hitPoint: Int) {
         self.hitPoint = hitPoint
         print(hitPoint)
-    }
-    
-    // クールタイムの設定
-    func adjusting(coolTime: Int) {
-        self.coolTime = coolTime
-        print(coolTime)
     }
     
     func adjusting(iPhoneSize: (w:CGFloat,h:CGFloat)) {

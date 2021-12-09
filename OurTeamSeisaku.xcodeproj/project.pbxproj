@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F09C081276242810066438D /* GameSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F09C080276242810066438D /* GameSettingViewModel.swift */; };
 		7F33ECAD275F8E0000FBF511 /* resultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33ECAC275F8E0000FBF511 /* resultView.swift */; };
 		7F713A302760E11B00452AD6 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F713A2F2760E11B00452AD6 /* Audio.swift */; };
 		7F9BDA21274B405900FB56B3 /* OurTeamSeisakuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BDA20274B405900FB56B3 /* OurTeamSeisakuApp.swift */; };
@@ -19,11 +20,11 @@
 		7FA4AAF22756610A00C86539 /* Newton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA4AAF12756610A00C86539 /* Newton.swift */; };
 		7FC549E0275B4B8C00B0386B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC549DF275B4B8C00B0386B /* ViewModel.swift */; };
 		7FC549E2275B6EED00B0386B /* GameSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FC549E1275B6EED00B0386B /* GameSetting.swift */; };
-		7FDCC4BB275B89E800C4D197 /* GameSettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCC4BA275B89E800C4D197 /* GameSettingViewModel.swift */; };
 		7FDCC4BD275B8B8C00C4D197 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FDCC4BC275B8B8C00C4D197 /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F09C080276242810066438D /* GameSettingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSettingViewModel.swift; sourceTree = "<group>"; };
 		7F33ECAC275F8E0000FBF511 /* resultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultView.swift; sourceTree = "<group>"; };
 		7F713A2F2760E11B00452AD6 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		7F9BDA1D274B405900FB56B3 /* OurTeamSeisaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OurTeamSeisaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +39,6 @@
 		7FA4AAF12756610A00C86539 /* Newton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Newton.swift; sourceTree = "<group>"; };
 		7FC549DF275B4B8C00B0386B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		7FC549E1275B6EED00B0386B /* GameSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetting.swift; sourceTree = "<group>"; };
-		7FDCC4BA275B89E800C4D197 /* GameSettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSettingViewModel.swift; sourceTree = "<group>"; };
 		7FDCC4BC275B8B8C00C4D197 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,7 +82,8 @@
 				7FC549DF275B4B8C00B0386B /* ViewModel.swift */,
 				7F9BDA46274B650400FB56B3 /* menuButtonView.swift */,
 				7F713A2F2760E11B00452AD6 /* Audio.swift */,
-				7FDCC4B9275B89C000C4D197 /* Settings */,
+				7F09C080276242810066438D /* GameSettingViewModel.swift */,
+				7FDCC4BC275B8B8C00C4D197 /* Setting.swift */,
 				7F9BDA24274B405D00FB56B3 /* Assets.xcassets */,
 				7F9BDA29274B405D00FB56B3 /* Info.plist */,
 				7F9BDA26274B405D00FB56B3 /* Preview Content */,
@@ -96,15 +97,6 @@
 				7F9BDA27274B405D00FB56B3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		7FDCC4B9275B89C000C4D197 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				7FDCC4BA275B89E800C4D197 /* GameSettingViewModel.swift */,
-				7FDCC4BC275B8B8C00C4D197 /* Setting.swift */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +177,7 @@
 				7F9BDA31274B407A00FB56B3 /* titleView.swift in Sources */,
 				7F9BDA3E274B420D00FB56B3 /* mainView.swift in Sources */,
 				7F33ECAD275F8E0000FBF511 /* resultView.swift in Sources */,
-				7FDCC4BB275B89E800C4D197 /* GameSettingViewModel.swift in Sources */,
+				7F09C081276242810066438D /* GameSettingViewModel.swift in Sources */,
 				7FC549E0275B4B8C00B0386B /* ViewModel.swift in Sources */,
 				7F9BDA47274B650400FB56B3 /* menuButtonView.swift in Sources */,
 			);
