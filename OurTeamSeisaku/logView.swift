@@ -11,6 +11,11 @@ struct logView: View {
     @State var mode = "うの"
     var body: some View {
         ZStack{
+            Image("Setting_pic")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+                .opacity(0.3)
+                .saturation(0.3)
             //            ボタンなど
             VStack{
                 Spacer().frame(height: 10)
@@ -82,6 +87,7 @@ struct logs: View {
             }
         }.frame(width: w, height: h/8)
             .border(Color.black)
+            .background(Color.white)
             .onAppear(){
                 allLog = logManager().getLog()
                 if num+1 <= allLog.count{
