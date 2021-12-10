@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import AVFoundation
 
 class Music: NSObject {
@@ -31,16 +32,18 @@ class Music: NSObject {
     } catch {print("bolt エラー")}}
 }
 
-struct Audio {
-    //let play = Music()
+class Audio {
+    let play = Music()
     func playMusic(order:String) {
-        print(order+"：音楽")
         if order == "cloud.rain.fill" {
-            Music().rainPlay()
+            play.rainPlay()
+            print(order+"：音楽")
         } else if order == "flame.fill" {
-            Music().flamePlay()
+            play.flamePlay()
+            print(order+"：音楽")
         } else {
-            Music().boltPlay()
+            play.boltPlay()
+            print(order+"：音楽")
         }
     }
     

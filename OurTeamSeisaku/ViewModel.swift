@@ -62,8 +62,7 @@ class ViewModel: ObservableObject{
     
     
     func set() {
-        let music = Audio()
-        music.playMusic(order: "\(obstacleData.name)")
+        Audio().playMusic(order: "\(model.enemyItem)")
         for i in 0...3 {
             let position = (x: w, y: CGFloat(0))
             // obstacle配列に4つの障害物を追加
@@ -112,15 +111,6 @@ class ViewModel: ObservableObject{
     func moveDown(num: Int) {
         obstacle[num].y += model.fallingSpeed
         
-        switch obstacleData.name {
-        case "flame.fill":
-            fireMove(num: num)
-        case "battery.100.bolt":
-            overChageMove(num: num)
-        default:
-            return
-        }
-        
         // 画面外にいくと再配置,停止
         if obstacle[num].y >= h+50{
             moving[num] = false
@@ -128,6 +118,15 @@ class ViewModel: ObservableObject{
             obstacle[num].y = 30
             counter[num].0 = true
             obNum += 1
+        }
+        
+        switch obstacleData.name {
+        case "flame.fill":
+            fireMove(num: num)
+        case "battery.100.bolt":
+            overChageMove(num: num)
+        default:
+            return
         }
     }
     
@@ -164,6 +163,7 @@ class ViewModel: ObservableObject{
     //    画面上部をタップした時に
     //    タップした座標に障害物を置く
     func summon(x: CGFloat,y: CGFloat) {
+        message = ""
         if obNum >= 1{
             self.moving[count]=true
             obstacle[count].x = x
@@ -194,7 +194,7 @@ class ViewModel: ObservableObject{
         switch obstacleData.name {
         case "cloud.rain.fill": message = "雨にやられた"
         case "flame.fill": message = "端末熱々！！！"
-        case "battery.100.bolt": message = "過充電してしまった。"
+        case "battery.100.bolt": message = "過充電！！！"
         default: message = "スマホを落としてしまった"
         }
 
@@ -218,7 +218,7 @@ class ViewModel: ObservableObject{
         timerHandler?.invalidate()
         gravity?.invalidate()
         message = "故障しました。"
-        logManager().addlog(newLog: ["\(data.kidsNum.a)","\(model.userName1)","\(data.kidsNum.b)","\(model.userName2)",
+        logManager().addlog(newLog: ["\(data.kidsNum.a)","\(data.userName.a)","\(data.kidsNum.b)","\(data.userName.b)",
                                      "\(gameTime)",model.iPhoneSize == (w:CGFloat(40),h:CGFloat(70)) ? "端末(小)" : "端末(大)",
                                      "\(model.fallingSpeed)",model.hitPoint == 3 ? "ON":"OFF",obstacleData.name])
     }

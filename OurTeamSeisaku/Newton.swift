@@ -31,7 +31,6 @@ struct Newton: View {
                                 .onEnded({ (value) in
                         print(value.location.x)
                         print(value.location.y)
-                        move.message = "あったてない"
                         move.summon(x: value.location.x,
                                     y: value.location.y)
                     }))
