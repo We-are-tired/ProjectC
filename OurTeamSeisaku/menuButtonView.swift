@@ -26,12 +26,10 @@ struct menuButtonView: View {
                                 Image(systemName: "house.fill")
                                     .resizable()
                             }
-                            Button(action: {}) {
+                            Button(action: {
+                                mainView().changeView(view: "title")
+                            }) {
                                 Image(systemName: "arrowshape.turn.up.left.fill")
-                                    .resizable()
-                            }
-                            Button(action: {}) {
-                                Image(systemName: "pause.fill")
                                     .resizable()
                             }
                         }.frame(width: 15, height:15)
@@ -45,9 +43,6 @@ struct menuButtonView: View {
                                 .padding(5)
                                 .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                         }
-                            
-                        Text(" ")
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         Text(" ")
                             .font(.title)
                         Text(" ")

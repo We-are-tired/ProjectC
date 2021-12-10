@@ -20,10 +20,11 @@ struct GameSetting: View {
             VStack{
                 HStack{
                     Spacer()
-                    Button("きろく"){
-                        mainView().changeView(view: "log")
-                    }
-                    .font(.title)
+                    Text("きろく")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.red)
+                        .onTapGesture {mainView().changeView(view: "log")}
                 }
                 Spacer()
             }

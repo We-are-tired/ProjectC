@@ -16,12 +16,16 @@ struct logView: View {
                 Spacer().frame(height: 10)
                 HStack{
                     Spacer()
-                    Button("戻る"){
-                        mainView().changeView(view: "Setting")
-                    }
-                    .font(.title)
+                    Text("戻る")
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .foregroundColor(.red)
+                        .onTapGesture {mainView().changeView(view: "Setting")}
                 }
-                
+                Text("あそんだ記録")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.orange)
                 
                 Spacer()
                 
@@ -47,30 +51,31 @@ struct logs: View {
     var body: some View {
         HStack{
             if num <= allLog.count{
-                Text("\(num)")
                 VStack{
                     Image("kids\(log[0])")
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                     Text(log[1])
+                        .font(.caption2)
                 }
                 Text("&")
                 VStack{
                     Image("kids\(log[2])")
                         .resizable()
-                        .frame(width: 50, height: 50)
+                        .frame(width: 60, height: 60)
                     Text(log[3])
+                        .font(.caption2)
                 }
                 VStack{
-                    Text("時間\(log[4])")
-                    Text("端末\(log[5])")
-                    Text("速度\(log[6])")
-                    Text("AppleCare\(log[7])")
+                    Text("時間：\(log[4])秒")
+                    Text("端末：\(log[5])")
+                    Text("速度：\(log[6])")
+                    Text("AppleCare：\(log[7])")
                     
                 }
-                Image(log[8])
+                Image(systemName:log[8])
                     .resizable()
-                    .frame(width: 50, height: 50)
+                    .frame(width: 20, height: 20)
             } else {
                 Text("\(num)回前のきろくはないよ！\nもっとお友達と遊ぼうね！")
                     .font(.title)
