@@ -42,6 +42,8 @@ class Setting {
         self.enemyItem = enemy
     }
     
+///enemySize作って！
+    
     // 落下速度の調整
     func adjusting(fallingSpeed: Int) {
         self.fallingSpeed = CGFloat(fallingSpeed)

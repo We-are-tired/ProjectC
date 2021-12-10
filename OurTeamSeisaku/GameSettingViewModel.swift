@@ -29,6 +29,8 @@ class GameSettingViewModel: ObservableObject {
     func settings() {
         print(itemsSpeed, isiPhoneSize, isAppleCare, isHighCastTime)
         
+        model.setEnemy(enemy: enemyItems[itemsArray])
+///enemySize作って！
         model.adjusting(fallingSpeed: itemsSpeed)
         model.adjusting(hitPoint: isAppleCare ? 3 : 2)
         model.adjusting(iPhoneSize: isiPhoneSize ? (w:CGFloat(40),h:CGFloat(70)) :

@@ -28,11 +28,14 @@ struct titleView: View {
                 .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.red/*@END_MENU_TOKEN@*/)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                 
+                ///ロゴの調整おね
+                
                 Spacer().frame(height: 100)
                 
                 Button("はい。"){
                     mainView().changeView(view: "Setting")
                 }.font(.title3)
+                ///ボタンの装飾おね
             }
         }
     }

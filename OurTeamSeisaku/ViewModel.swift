@@ -52,7 +52,13 @@ class ViewModel: ObservableObject{
     @Published var isPlay = false
     var count = 0
     var obNum = 4
-//    var speed = CGFloat(2)
+    
+    init() {
+        health = model.hitPoint
+        obstacleData = (name:model.enemyItem,
+                        w:CGFloat(39)/*model.enemySize.w*/,
+                        h:CGFloat(39)/*model.enemySize.h*/)
+    }
     
     
     func set() {
@@ -201,8 +207,8 @@ class ViewModel: ObservableObject{
             obNum = 4
         }
         count = 0
-        model.hitPoint -= 1
-        if model.hitPoint <= 0 {
+        health -= 1
+        if health <= 0 {
             gameOver()
         }
     }
@@ -213,6 +219,7 @@ class ViewModel: ObservableObject{
         gravity?.invalidate()
         message = "故障しました。"
         logManager().addlog(newLog: ["\(data.kidsNum.a)","\(model.userName1)","\(data.kidsNum.b)","\(model.userName2)",
-                                     "\(gameTime)",model.iPhoneSize == (w:CGFloat(40),h:CGFloat(70)) ? "端末(小)" : "端末(大)","\(model.fallingSpeed)","aaa",obstacleData.name])
+                                     "\(gameTime)",model.iPhoneSize == (w:CGFloat(40),h:CGFloat(70)) ? "端末(小)" : "端末(大)",
+                                     "\(model.fallingSpeed)",model.hitPoint == 3 ? "ON":"OFF",obstacleData.name])
     }
 }
