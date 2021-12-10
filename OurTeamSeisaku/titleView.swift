@@ -13,6 +13,10 @@ struct titleView: View {
     let h = UIScreen.main.bounds.height
     var body: some View {
         ZStack{
+            Image("broken_iphone")
+                .resizable()
+                .edgesIgnoringSafeArea(.all)
+            
             VStack{
                 Group{
                 
@@ -22,9 +26,14 @@ struct titleView: View {
                 }
                 Spacer().frame(height: 100)
                 
-                Button("はい。"){
+                Button("いっぱいあそぶ！"){
                     mainView().changeView(view: "Setting")
-                }.font(.title3)
+                }
+                .padding()
+                .font(.title)
+                .background(Color.red)
+                .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
+                .cornerRadius(24)
                 ///ボタンの装飾おね
             }
         }

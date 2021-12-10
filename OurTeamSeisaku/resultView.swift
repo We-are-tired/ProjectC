@@ -26,7 +26,7 @@ struct resultView: View {
                 Spacer()
                 
                 ForEach(1..<2){
-                num in resultlogs(num: num)
+                    num in resultlogs(num: num)
                 }
                 
                 Spacer()
@@ -51,34 +51,44 @@ struct resultlogs:View{
     @State var log:[String] = ["","","","","","","","",""]
     
     var body: some View {
-        HStack{
-            VStack{
-                Image("kids\(log[0])")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                Text(log[1])
-            }
-            Text("VS")
-            VStack{
-                Image("kids\(log[2])")
-                    .resizable()
-                    .frame(width: 50, height: 50)
-                Text(log[3])
-            }
+        VStack{
+            HStack{
+                VStack{
+                    Image("kids\(log[0])")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    Text(log[1])
+                }//VStack(P1 + name)縦並び
+                
+                Text("VS")
+                    .font(.title2)
+                
+                VStack{
+                    Image("kids\(log[2])")
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                    Text(log[3])
+                }//VStack(P2 + name)縦並び
+            }//HStack (P1+name VS P2+name)という並びのイメージ、これと「時間」を強調表示させて縦並び、他は大きさを小さめなままで並ばせるだけのイメージ
+            
             VStack{
                 Text("時間\(log[4])")
-                //↓端末の大きさ（「端末（小）」などで記述されるため、呼称をなしにしている）
+                    .font(.title)
+                    .padding()
+                
+                //端末の大きさ（「端末（小）」などで記述されるため、呼称をなしにしている）
                 Text("\(log[5])")
                 Text("速度\(log[6])")
                 Text("AppleCare\(log[7])")
-            }
+            }//VStack(時間などの情報一覧)
+            
             Image(log[8])
                 .resizable()
                 .frame(width: 50, height: 50)
         }//HStack
         .onAppear(){
             allLog = logManager().getLog()
-                log = allLog[0]
+            log = allLog[0]
         }//onAppear
     }//resultlogs - body
 }//resultlogs - Biew

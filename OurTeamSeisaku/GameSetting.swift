@@ -31,19 +31,24 @@ struct GameSetting: View {
             
             HStack{//ユーザーの横並び
                 ///左側のユーザー（初期値は落とす側）
-                VStack{
+                VStack(spacing:15){
                     VStack{
                         Button{
                             //タップでユーザー画像の変更を行う想定
-///data.kidsNum.a -> 1~8
+                            //data.kidsNum.a -> 1~8
+                            if(data.kidsNum.a == 8){
+                                data.kidsNum.a = 1
+                            }else{
+                                data.kidsNum.a += 1
+                            }
                         }label:{
                             //以下のアイコンは画像に変更予定。仮置きのSFシンボル。
                             Image("kids\(data.kidsNum.a)")
                                 .resizable()
-                                .frame(width: 55, height: 55)
+                            //アイコン画像のサイズ調整(50~60 -> 80へ)
+                                .frame(width: 80, height: 80)
                                 .padding()
                                 .background(Color.white)
-///kidsの画像サイズ調整おね
                         }//ユーザー1のボタン
                         
                         TextField("ユーザー1", text: $data.userName.a)
@@ -59,7 +64,7 @@ struct GameSetting: View {
                             .padding(2.0)
                             .background(Color.white)
                         
-                        HStack(spacing:15){
+                        HStack(spacing:5){
                             Button{
                                 //enemyItemsの画像切り替え（左）
                                 if(viewModel.itemsArray < viewModel.enemyItems.count - 1) {
@@ -76,7 +81,7 @@ struct GameSetting: View {
                             //障害物のアイコン
                             Image(systemName:"\(viewModel.enemyItems[viewModel.itemsArray])")
                                 .resizable()
-                                .frame(width: 40, height: 35)
+                                .frame(width: 60, height: 50)
                                 .padding()
                                 .background(Color.white)
 ///アイコンに障害物のサイズ(model.enemySize.w/model.enemySize.w作った後)適応おね
@@ -148,15 +153,21 @@ struct GameSetting: View {
                     VStack{
                         Button{
                             //タップでユーザー画像の変更を行う想定
-///data.kidsNum.b -> 1~8
+                            //data.kidsNum.b -> 1~8
+                            if(data.kidsNum.b == 8){
+                                data.kidsNum.b = 1
+                            }else{
+                                data.kidsNum.b += 1
+                            }
+
                         }label:{
                             //以下のアイコンは画像に変更予定。仮置きのSFシンボル。
                             Image("kids\(data.kidsNum.b)")
                                 .resizable()
-                                .frame(width: 55, height: 55)
+                            //アイコン画像のサイズ調整(50~60 -> 80へ)
+                                .frame(width: 80, height: 80)
                                 .padding()
                                 .background(Color.white)
-///kidsの画像サイズ調整おね
                         }//ユーザー2の画像
                         
                         TextField("ユーザー2", text: $data.userName.b)
@@ -176,7 +187,7 @@ struct GameSetting: View {
                                 ZStack {
                                     Image(systemName:"\(viewModel.iphoneItems)")
                                         .resizable()
-                                        .frame(width: 40, height: 35)
+                                        .frame(width: 50, height: 75)
                                         .padding()
                                         .background(Color.white)
 ///iPhoneのsfSymbol(iPhone.homebutton/iPhone)とサイズ適応おね
@@ -186,6 +197,7 @@ struct GameSetting: View {
                                     Button{
                                         //端末の大きさを変える処理
                                         viewModel.isiPhoneSize = false
+                                        viewModel.iphoneItems = "iphone"
                                     }label:{
                                         Text("←")
                                             .padding(5)
@@ -203,6 +215,7 @@ struct GameSetting: View {
                                     Button{
                                         //端末の大きさを変える処理
                                         viewModel.isiPhoneSize = true
+                                        viewModel.iphoneItems = "iphone.homebutton"
                                     }label:{
                                         Text("→")
                                             .padding(5)
