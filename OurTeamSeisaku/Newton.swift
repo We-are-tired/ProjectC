@@ -18,13 +18,13 @@ struct Newton: View {
     
     var body: some View {
         ZStack{
-            Image("haikei")
+            Image("\(model.enemyItem)B")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
                 .opacity(0.5)
             //  障害物出せる場所
             VStack{
-                Image("cloud")
+                Image("\(model.enemyItem)A")
                     .resizable()
                     .frame(width: w, height: h/4)
                     .gesture(DragGesture(minimumDistance: 0)

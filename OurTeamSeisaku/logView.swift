@@ -120,7 +120,7 @@ class logManager:ObservableObject {
         getSavedLog()
         
         // ５つ目の除外、内容を右にずらす
-        // [0,1,2,3,4] -> [0,0,1,2,3] -> [info,0,1,2,3]
+        // [0,1,2,3,4] -> [0,0,1,2,3] -> [new,0,1,2,3]
         print(allLog.count)
         
         if allLog.count == 5{
@@ -130,8 +130,8 @@ class logManager:ObservableObject {
             }
             allLog[0] = newLog
         }else{
-            // 0~4個しかない時は5個になるまで追加
-            allLog.append(newLog)
+            // 0~4個しかない時は5個になるまで0に追加,並べ替え
+            allLog.insert(newLog, at: 0)
         }
         
         // 変更したallLogをsavedlogとして保存

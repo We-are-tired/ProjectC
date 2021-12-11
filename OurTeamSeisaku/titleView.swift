@@ -26,7 +26,7 @@ struct titleView: View {
                 }
                 Spacer().frame(height: 100)
                 
-                Button("いっぱいあそぶ！"){
+                Button("はい。"){
                     mainView().changeView(view: "Setting")
                 }
                 .padding()
@@ -34,7 +34,6 @@ struct titleView: View {
                 .background(Color.red)
                 .foregroundColor(/*@START_MENU_TOKEN@*/.white/*@END_MENU_TOKEN@*/)
                 .cornerRadius(24)
-                ///ボタンの装飾おね
             }
         }
     }
