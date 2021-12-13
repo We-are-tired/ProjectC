@@ -56,8 +56,8 @@ class ViewModel: ObservableObject{
     init() {
         health = model.hitPoint
         obstacleData = (name:model.enemyItem,
-                        w:CGFloat(39)/*model.enemySize.w*/,
-                        h:CGFloat(39)/*model.enemySize.h*/)
+                        w:model.enemySize.w,
+                        h:model.enemySize.h)
     }
     
     

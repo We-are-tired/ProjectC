@@ -26,6 +26,7 @@ class Setting {
     
     var userName1 = ""
     var userName2 = ""
+    var enemySize = (w:CGFloat(70),h:CGFloat(30))
     
     private init() {
         //なにか処理あれば
@@ -37,11 +38,20 @@ class Setting {
         self.userName2 = userName2
     }
     
-    // 落ちてくるアイテムの決定
     func setEnemy(enemy:String) {
-        self.enemyItem = enemy
-    }
-    
+            self.enemyItem = enemy
+            switch enemy {
+            case "cloud.rain.fill":
+                self.enemySize = (w:CGFloat(70),h:CGFloat(50))
+            case "flame.fill":
+                self.enemySize = (w:CGFloat(60),h:CGFloat(60))
+            case "battery.100.bolt":
+                self.enemySize = (w:CGFloat(70),h:CGFloat(30))
+            default:
+                //ここに何か入ることはない
+                break
+            }
+        }
 ///enemySize作って！
     
     // 落下速度の調整
